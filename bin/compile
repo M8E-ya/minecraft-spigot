@@ -66,14 +66,14 @@ minecraft_version=${MINECRAFT_VERSION:-"1.14"}
 
 if echo "$minecraft_version" | grep -q '^1\.14.*$'; then
   minecraft_uuid="${MINECRAFT_UUID:="f1a0073671057f01aa843443fef34330281333ce"}"
-  minecraft_url="https://launcher.mojang.com/v1/objects/f1a0073671057f01aa843443fef34330281333ce/server.jar"
+  minecraft_url="https://cdn.getbukkit.org/spigot/spigot-1.14.jar"
 else
   minecraft_url="https://s3.amazonaws.com/Minecraft.Download/versions/${minecraft_version}/server.${minecraft_version}.jar"
 fi
 
 echo -n "-----> Installing Minecraft ${minecraft_version}... "
-curl -o server.jar -s -L $minecraft_url
-mv server.jar $BUILD_DIR/server.jar
+curl -o spigot-1.14 -s -L $minecraft_url
+mv spigot-1.14 $BUILD_DIR/spigot-1.14
 echo "done"
 
 if [ -n "${MINECRAFT_EULA:-""}" ]; then
