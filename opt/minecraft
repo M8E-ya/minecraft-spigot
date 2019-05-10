@@ -31,16 +31,16 @@ case $limit in
   512)   # 2X Dyno
   heap="768m"
   ;;
-  32768) # PX Dyno
-  heap="4g"
+  1024) # PX Dyno
+  heap="768m"
   ;;
   *)     # 1X Dyno
-  heap="384m"
+  heap="768m"
   ;;
 esac
 
 echo "Starting: minecraft ${mc_port}"
-eval "screen -L -h 2048 -dmS minecraft java -Xmx${heap} -Xms${heap} -jar server.jar nogui"
+eval "screen -L -h 2048 -dmS minecraft java -Xmx${heap} -Xms${heap} -jar spigot-1.14.jar nogui"
 main_pid=$!
 
 # Flush the logfile every second, and ensure that the logfile exists
